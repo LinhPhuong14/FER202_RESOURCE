@@ -2,10 +2,9 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import Home from "./pages"
-import ModalsProvider from "./context/ModalsContext"
+import TodoProvider from "./context/TodoContext"
 import "bootstrap/dist/css/bootstrap.min.css"
-import Employees from "./pages/Employees"
-import AddProject from "./pages/AddProject"
+import { Test } from "./pages/Test"
 
 const router = createBrowserRouter([
     {
@@ -13,19 +12,15 @@ const router = createBrowserRouter([
         element: <Home />,
     },
     {
-        path: "/departments/:id/employees",
-        element: <Employees />,
-    },
-    {
-        path: "projects/add",
-        element: <AddProject />,
+        path: "/test",
+        element: <Test />,
     },
 ])
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
     <React.StrictMode>
-        <ModalsProvider>
+        <TodoProvider>
             <RouterProvider router={router} />
-        </ModalsProvider>
+        </TodoProvider>
     </React.StrictMode>
 )
